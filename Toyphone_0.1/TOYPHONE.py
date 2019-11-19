@@ -10,13 +10,11 @@ def delete_word(word, sentence):
 
 
 def SearchInCatalog(catalog, query, command):
-    query_words = query.split()
-    for word in query_words:
-        for construction in catalog:
-            for variant in catalog[construction]:
-                if word == variant:
-                    command = command + "+" + construction
-                    query = delete_word(word, query)
+    for construction in catalog:
+        for variant in catalog[construction]:
+            if variant in query:
+                command = command + "+" + construction
+                query = delete_word(variant, query)
     return query, command
 
 
@@ -31,6 +29,7 @@ possible_words = {
     84: ['вниз'],
     79: ['влево', 'налево'],
     89: ['вправо', 'направо'],
+    'shift+=': ['плюс', '+'],
     '1': ['1', 'один', 'первый', 'первая', 'первое'],
     '2': ['2', 'два', 'второй', 'вторая', 'второе'],
     'a': ['a'],
@@ -112,5 +111,6 @@ def Translate_Commands(query):
         time.sleep(2)
         keyboard.press_and_release(command[1:])
 
-while True:
-    Translate_Commands(STT.listen())
+# while True:
+#     Translate_Commands(STT.listen())
+Translate_Commands('плюс')
