@@ -111,6 +111,5 @@ def Translate_Commands(query):
         time.sleep(2)
         keyboard.press_and_release(command[1:])
 
-# while True:
-#     Translate_Commands(STT.listen())
-Translate_Commands('плюс')
+while True:
+    Translate_Commands(STT.listen())
