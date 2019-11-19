@@ -114,4 +114,3 @@ def Translate_Commands(query):
 
 while True:
     Translate_Commands(STT.listen())
-1
