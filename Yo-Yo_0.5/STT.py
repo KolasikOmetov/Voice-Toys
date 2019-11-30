@@ -21,5 +21,3 @@ def listen():
        print("Речь не распознана")
        query = listen()
     return query.lower()
-
-listen()

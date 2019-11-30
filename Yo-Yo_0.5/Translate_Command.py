@@ -50,9 +50,11 @@ def ChangeInArguments(query, arguments):
 
 
 possible_words = {
+    'stop': ['стоп', 'хватит', 'замолчи', 'перестань', 'заткнись'],
     'ParrotToy': ['запиши текст', 'записывай текст', 'пиши текст', 'включи диктофон', 'включи parrot toy'],
     'Toyphone': ['управлять клавиатурой', 'управлять клавиатурой голосом', 'управлять клавиатурой с помощью голоса',
                  'управляю клавиатурой', 'управлять клавиатурой голосом', 'управлять клавиатурой с помощью голоса',],
+    'launch_site': ['запусти сайт', 'открой сайт'],
 }
 
 
@@ -85,7 +87,7 @@ def Translate_Commands(query):
 
     return command
 
-print(Translate_Commands("запиши текст"))
+
 #print(Translate_Commands('хватит'))
 #print(Translate_Commands("диктую"))
 # input().lower()

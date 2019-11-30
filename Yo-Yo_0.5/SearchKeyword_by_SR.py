@@ -1,7 +1,16 @@
 import speech_recognition as sr
-keywords = {'Yo-Yo':['yo-yo', 'yo', 'new york', 'ё ё', 'её', 'йо-йо'],
+import os
+import TTS
+
+
+keywords = {'Yo_Yo':['yo-yo', 'yo', 'new york', 'ё ё', 'её', 'йо-йо'],
            'ToyPhone':['toy phone', 'iphone', 'телефон', 'фон'],
            'ParrotToy':['parrot', 'parrot toy'],}
+
+path_directory= os.path.dirname(os.path.realpath(__file__))
+ParrotToy_path = path_directory + '\ParrotToy_0.1\ParrotToy.py'
+ToyPhone_path = path_directory + '\Toyphone_0.2\TOYPHONE.py'
+Yo_Yo_path = path_directory + 'Yo-Yo_0.5.py'
 
 def listen():
     r = sr.Recognizer()
@@ -21,9 +30,22 @@ def listen():
         print("Could not request results; {0}".format(e))
 
 
+def ParrotToy():
+    TTS.talk('Запущен ParrotToy')
+    os.system(ParrotToy_path)
+
+def ToyPhone():
+    print('Запущен ToyPhone')
+    os.system(ToyPhone_path)
+
+def Yo_Yo():
+    TTS.talk('Запущена Yo-Yo')
+    os.system(Yo_Yo_path)
+
 def main(name):
-    print(name)
+    exec(name+"()")
 
+main('её')
 
-while True:
-    listen()
+# while True:
+#     listen()
