@@ -1,5 +1,6 @@
 import time
 import STT
+import TTS
 
 # по номеру получаем текстовую запись дня недели
 def setDayWeek():
@@ -50,7 +51,7 @@ def getDateName():
 def main():
     file_name = getDateName()+'.txt'
     with open(file_name, 'w', encoding='utf-8') as f:
-        print('Запись началась')
+        TTS.talk('Запись началась')
         f.write(getDate())
         record(f)
 
@@ -60,10 +61,10 @@ def record(file):
     while stop: # проверка допустимости записи
         file.write('\n'+getTime())  # запись текущего времени
         text = STT.listen()
-        print(text)
         if 'стоп' in text:
             stop = 0 # запрет на дальнейшее распознование записи
             file.write("Конец записи")
+            TTS.talk("Конец записи")
         # elif ' пауза' in text:
         #     f.write("Запись на паузе")
         #     break
