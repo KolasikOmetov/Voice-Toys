@@ -43,6 +43,6 @@ Python 3.6
 
 #### Библиотеки 
 PyAudio, 
-SpeechRecognition
+SpeechRecognition,
 Win32,
 Keyboard
